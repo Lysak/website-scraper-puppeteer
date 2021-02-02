@@ -1,0 +1,24 @@
+{
+  "name": "website-scraper-puppeteer",
+  "version": "1.0.0",
+  "description": "# npm install website-scraper website-scraper-puppeteer # node index.js",
+  "main": "index.js",
+  "dependencies": {
+    "website-scraper": "^4.2.3",
+    "website-scraper-puppeteer": "^0.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lysak/website-scraper-puppeteer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lysak/website-scraper-puppeteer/issues"
+  },
+  "homepage": "https://github.com/Lysak/website-scraper-puppeteer#readme",
+  "keywords": []
+}
