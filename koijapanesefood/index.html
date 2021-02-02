@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en" translate="no" class="notranslate" style="--primary-color:#1dda8a;">
+<head>
+<!--    <script async src="js/tag.js"></script>-->
+<!--    <script src="604270413547454" async></script>-->
+<!--    <script async src="js/fbevents.js"></script>-->
+<!--    <script type="text/javascript" async src="js/analytics.js"></script>-->
+<!--    <script async src="js_1"></script>-->
+
+    <meta charset="utf-8">
+    <meta name="google" content="notranslate">
+    <link rel="shortcut icon" id="shortcut-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" id="shortcut-icon-57" href="images/favicon-57.png">
+    <link rel="apple-touch-icon" id="shortcut-icon-180" sizes="180x180" href="images/favicon-180.png">
+    <link rel="apple-touch-icon" id="shortcut-icon-152" sizes="152x152" href="images/favicon-152.png">
+    <link rel="apple-touch-icon" id="shortcut-icon-144" sizes="144x144" href="images/favicon-144.png">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,shrink-to-fit=no,viewport-fit=cover">
+    <meta name="theme-color" content="#333333">
+    <link rel="manifest" id="pwa-manifest" href="/manifest.json">
+    <title>KOI - Choice</title>
+    <style>
+        .preloader {
+            background: #fff;
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(images/loading.gif);
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;
+            transition: opacity .1s, visibility .1s;
+            min-height: 240px
+        }
+
+        .preloader.fixed {
+            position: fixed;
+            z-index: 999
+        }
+
+        .close-preloader {
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            z-index: 999
+        }
+    </style>
+    <link href="css/2.543f5759.chunk.css" rel="stylesheet">
+    <link href="css/main.4dc7bde2.chunk.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/6.c6c73ef8.chunk.css">
+    <script charset="utf-8" src="js/6.cf555a0a.chunk.js"></script>
+</head>
+<body>
+<noscript>
+    <iframe src="ns.html" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<div id="root">
+    <div class="base-layout">
+        <div class="page-content">
+            <div class="main-page u-page">
+                <div class="shadows-container main-scroll-container with-bottom-shadow">
+                    <div class="scrollable-content">
+                        <div class="header">
+                            <div class="u-ct">
+                                <div id="header-anchor"></div>
+                                <div class="bg-overlay"></div>
+                                <div class="top-panel">
+                                    <div class="left-side">
+                                        <div class="logo-wrapper">
+                                            <div class="place-info">
+                                                <div class="name">KOI</div>
+                                                <div class="type">
+                                                    <div class="place-type">Ресторан</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right-side">
+                                        <div class="cart">
+                                            <div class="cart-button--wrapper">
+                                                <div class="ui-tooltip-container">
+                                                    <button type="button" disabled class="ui-button ui-button-primary">
+                                                        <div class="cart-button"><span class="svg-icon"><svg
+                                                                viewBox="0 0 24 24"><g fill="currentColor"><path
+                                                                d="M12 3.0001C11.8675 2.99823 11.7359 3.02271 11.613 3.07212C11.49 3.12153 11.3781 3.1949 11.2837 3.28794C11.1893 3.38098 11.1144 3.49186 11.0632 3.61411C11.0121 3.73637 10.9858 3.86757 10.9858 4.0001C10.9858 4.13263 11.0121 4.26383 11.0632 4.38609C11.1144 4.50834 11.1893 4.61922 11.2837 4.71226C11.3781 4.8053 11.49 4.87867 11.613 4.92808C11.7359 4.97749 11.8675 5.00197 12 5.0001H12.1582C11.8152 5.78701 11.4577 6.76966 11.2246 7.94737C10.465 7.3624 9.52631 7.0001 8.5 7.0001C6.19751 7.0001 4.30453 8.76214 4.05078 11.0001H3C2.73479 11.0001 2.48045 11.1055 2.29292 11.293C2.10539 11.4806 2.00003 11.7349 2 12.0001V14.0001C1.99989 14.13 2.0251 14.2587 2.07422 14.379L4.5293 20.379C4.60453 20.5627 4.73275 20.7199 4.89762 20.8305C5.06249 20.9411 5.25655 21.0002 5.45508 21.0001H18.5449C18.7435 21.0002 18.9375 20.9411 19.1024 20.8305C19.2672 20.7199 19.3955 20.5627 19.4707 20.379L21.9258 14.379C21.9749 14.2587 22.0001 14.13 22 14.0001V12.0001C22 11.7349 21.8946 11.4806 21.7071 11.293C21.5195 11.1055 21.2652 11.0001 21 11.0001H20V10.0001C20 8.02544 19.3764 6.22671 18.8418 5.0001H19C19.1325 5.00197 19.2641 4.97749 19.387 4.92808C19.51 4.87867 19.6219 4.8053 19.7163 4.71226C19.8107 4.61922 19.8856 4.50834 19.9368 4.38609C19.9879 4.26383 20.0142 4.13263 20.0142 4.0001C20.0142 3.86757 19.9879 3.73637 19.9368 3.61411C19.8856 3.49186 19.8107 3.38098 19.7163 3.28794C19.6219 3.1949 19.51 3.12153 19.387 3.07212C19.2641 3.02271 19.1325 2.99823 19 3.0001H12ZM14.3867 5.0001H16.6133C16.9478 5.64233 18 7.75512 18 10.0001V11.0001H13V10.0001C13 7.75512 14.0522 5.64233 14.3867 5.0001ZM8.5 9.0001C9.72114 9.0001 10.7211 9.85144 10.9492 11.0001H6.05078C6.27894 9.85144 7.27886 9.0001 8.5 9.0001ZM4 13.0001H11.832C11.94 13.0179 12.0502 13.0179 12.1582 13.0001H18.832C18.94 13.0179 19.0502 13.0179 19.1582 13.0001H20V13.8028L17.873 19.0001H6.12695L4 13.8028V13.0001Z"/></g></svg></span>Корзина
+                                                            порожня
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="lang">
+                                            <button type="button" class="ui-button"><span>UK</span><span
+                                                    class="caret"></span></button>
+                                        </div>
+                                        <div class="menu">
+                                            <button type="button" class="ui-button menu-button"><span class="svg-icon"><svg
+                                                    viewBox="0 0 24 24"><g fill="currentColor"><path
+                                                    d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></g></svg></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="u-ct">
+                            <div class="main-background"
+                                 style="background-image: url('images/Koi-Cube-400_x_600_black_4e4e8c24c0.jpeg');"></div>
+                            <div class="desktop-wrapper">
+                                <div class="desktop-sections" id="#desktop-sections"
+                                     style="height: calc(100vh - 328px);">
+                                    <div class="sections-location"></div>
+                                    <div class="section-item is-active">
+                                        <div class="name"><a class="section" href="/5f0ef65990f107003c0874f9">
+                                            <div class="inner">
+                                                <div class="label">Menu</div>
+                                                <span class="svg-icon"><svg viewBox="0 0 24 24"><g fill="currentColor"><path
+                                                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                                                        stroke-width="2"/></g></svg></span></div>
+                                        </a></div>
+                                        <div class="list">
+                                            <div data-id="5f0f47dea8bcd7016db82904" data-index="0"
+                                                 class="category isActive">Сети
+                                            </div>
+                                            <div data-id="5f104896a8bcd7016db8296e" data-index="1" class="category">
+                                                Lunch
+                                            </div>
+                                            <div data-id="5f1abbd488d04d001047561e" data-index="2" class="category">
+                                                Акції
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-item">
+                                        <div class="name"><a class="section" href="/5f0f1e1f90f107003c08771a">
+                                            <div class="inner">
+                                                <div class="label">Classic</div>
+                                                <span class="svg-icon"><svg viewBox="0 0 24 24"><g fill="currentColor"><path
+                                                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                                                        stroke-width="2"/></g></svg></span></div>
+                                        </a></div>
+                                    </div>
+                                    <div class="section-item">
+                                        <div class="name"><a class="section" href="/5f103424a8bcd7016db8292b">
+                                            <div class="inner">
+                                                <div class="label">Exclusive</div>
+                                                <span class="svg-icon"><svg viewBox="0 0 24 24"><g fill="currentColor"><path
+                                                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                                                        stroke-width="2"/></g></svg></span></div>
+                                        </a></div>
+                                    </div>
+                                    <div class="section-item">
+                                        <div class="name"><a class="section" href="/5f10408ea8bcd7016db82947">
+                                            <div class="inner">
+                                                <div class="label">Fusion</div>
+                                                <span class="svg-icon"><svg viewBox="0 0 24 24"><g fill="currentColor"><path
+                                                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                                                        stroke-width="2"/></g></svg></span></div>
+                                        </a></div>
+                                    </div>
+                                </div>
+                                <div class="selected-section">
+                                    <div class="menu-page u-flex-1 u-flex-column">
+                                        <div class="menu-content">
+                                            <div>
+                                                <div class="categories-list">
+                                                    <div id="category-5f0f47dea8bcd7016db82904" class="menu-category">
+                                                        <div class="menu-category-info">
+                                                            <div class="u-container">
+                                                                <div class="menu-category-title">Сети</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="list">
+                                                            <div id="item-id-5f0f4862a8bcd7016db82907"
+                                                                 class="menu-item visible">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="u-container">
+                                                                        <div class="u-relative">
+                                                                            <div class="img">
+                                                                                <div class="image blured"
+                                                                                     style="background-image: url('images/medium_pic(17).jpeg');"></div>
+                                                                                <div class="image"
+                                                                                     style="background-image: url('images/medium_pic(17).jpeg');"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">Classic</div>
+                                                                                <div class="description">Філадельфія з
+                                                                                    лососем, філадельфія
+                                                                                    вугор-манго,Футомак з маринованим
+                                                                                    лососем, Каліфорнія з креветкою,
+                                                                                    1000 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">459.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>30
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f0f48d6a8bcd7016db8290a"
+                                                                 class="menu-item visible">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="u-container">
+                                                                        <div class="u-relative">
+                                                                            <div class="img">
+                                                                                <div class="image blured"
+                                                                                     style="background-image: url('images/medium_pic(24).jpeg');"></div>
+                                                                                <div class="image"
+                                                                                     style="background-image: url('images/medium_pic(24).jpeg');"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">Exclusive</div>
+                                                                                <div class="description">Філадельфія з
+                                                                                    лососем гриль, філадельфія з пастою
+                                                                                    тунця, каліфорнія з тунцем в
+                                                                                    темпурі, каліфорнія з вугрем в
+                                                                                    темпурі та панко, 830 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">399.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>30
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f0f494ba8bcd7016db8290d"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">Fusion</div>
+                                                                                <div class="description">Альмонд,Коі
+                                                                                    лосось гриль, Коі авокадо, дракон
+                                                                                    кольоровий, Коі з солоним лососем,
+                                                                                    1100 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">699.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>40
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f0f49c4a8bcd7016db82910"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">Mix</div>
+                                                                                <div class="description">Філадельфія з
+                                                                                    лососем, філадельфія з грушею,
+                                                                                    філадельфія з пастою тунця,
+                                                                                    філадельфія Вега, філадельфія
+                                                                                    вугор-манго, Коі нігірі, гункани з
+                                                                                    креветкою , 1420 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">749.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>45
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f0f4a90a8bcd7016db82913"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">KOI</div>
+                                                                                <div class="description">Альмонд, Коі
+                                                                                    вугор, каліфорнія з креветкою в
+                                                                                    темпурі та обпаленим лососем,
+                                                                                    футомак з лососем та сиром , 770 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">459.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>35
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f0f4b94a8bcd7016db82916"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">Акційний</div>
+                                                                                <div class="description">Філадельфія з
+                                                                                    лососем, філадельфія з грушею,
+                                                                                    каліфорнія з вугрем, 750 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">323.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>30
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f0f4be1a8bcd7016db82919"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">Акційна філадельфія
+                                                                                </div>
+                                                                                <div class="description">філадельфія з
+                                                                                    лососем, філадельфія з вугрем,
+                                                                                    філадельфія Міх, 820 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">359.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>30
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f0f4d02a8bcd7016db8291c"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">Mini Fusion</div>
+                                                                                <div class="description">Альмонд, Коі
+                                                                                    татакі тунець, Коі авокадо , 570 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">299.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>30
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f10459da8bcd7016db82967"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">Філоманія</div>
+                                                                                <div class="description">філадельфія з
+                                                                                    лососем, філадельфія з грушею,
+                                                                                    футомак з креветкою, філадельфія з
+                                                                                    вугрем в кунжуті
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">418.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>40
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f104b42a8bcd7016db8297a"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">10</div>
+                                                                                <div class="description">fusion
+                                                                                    філадельфія з лососем, fusion
+                                                                                    філадельфія з тунцем, каліфорнія в
+                                                                                    кунжуті з вугрем в темпурі та панко,
+                                                                                    каліфорнія в кунжуті з креветкою ,
+                                                                                    1280 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">559.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>40
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f104b74a8bcd7016db8297d"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">5</div>
+                                                                                <div class="description">fusion
+                                                                                    філадельфія з лососем, fusion
+                                                                                    філадельфія з тунцем, каліфорнія в
+                                                                                    кунжуті з вугрем в темпурі та панко,
+                                                                                    каліфорнія в кунжуті з креветкою ,
+                                                                                    640 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">359.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>30
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="category-5f104896a8bcd7016db8296e" class="menu-category">
+                                                        <div class="menu-category-info">
+                                                            <div class="u-container">
+                                                                <div class="menu-category-title">Lunch</div>
+                                                                <div class="menu-category-description">Пн-Пт з
+                                                                    11:00-17:00
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="list">
+                                                            <div id="item-id-5f1048f6a8bcd7016db82971"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">№1 з лососем</div>
+                                                                                <div class="description">футомак з
+                                                                                    лососем в панко ,маки з
+                                                                                    лососем,мариновані огірки
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">159.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>25
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f104942a8bcd7016db82974"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">№2 з вугрем та
+                                                                                    маринованим лососем
+                                                                                </div>
+                                                                                <div class="description">футомак з
+                                                                                    вугрем в панко, маки з маринованим
+                                                                                    лососем, хіяші
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">149.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>25
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f104975a8bcd7016db82977"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="img-large"></div>
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">№3 з креветкою</div>
+                                                                                <div class="description">каліфорнія з
+                                                                                    креветкою в темпурі, маки з
+                                                                                    креветкою, боби едамаме
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">139.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>25
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="img-placeholder"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="category-5f1abbd488d04d001047561e" class="menu-category">
+                                                        <div class="menu-category-info">
+                                                            <div class="u-container">
+                                                                <div class="menu-category-title">Акції</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="list">
+                                                            <div id="item-id-5f4e64f1fc564a00104d3f41"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">Лайтовий</div>
+                                                                                <div class="description">Футомак з
+                                                                                    лососем та сиром
+                                                                                    Філадельфія з лососем в тобіко
+                                                                                    Філадельфія з лососем, 777 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">289.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>15
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                            <div id="item-id-5f4e6535fc564a00104d3f42"
+                                                                 class="menu-item">
+                                                                <div class="clickable-content">
+                                                                    <div class="item-content">
+                                                                        <div class="u-flex u-col">
+                                                                            <div class="main-content">
+                                                                                <div class="name">Економ</div>
+                                                                                <div class="description">Філадельфія з
+                                                                                    лососем
+                                                                                    Філадельфія з лососем в кунжуті
+                                                                                    Футомак з креветкою та сиром, 777 г.
+                                                                                </div>
+                                                                                <div class="badges">
+                                                                                    <div class="badge price">279.00
+                                                                                        UAH
+                                                                                    </div>
+                                                                                    <div class="attribute attribute-type-preparation badge">
+                                                                                        <span class="svg-icon u-icon-s"><svg
+                                                                                                viewBox="0 0 24 24"><g
+                                                                                                fill="currentColor"><path
+                                                                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></g></svg></span>15
+                                                                                        хв
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="additional-content"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="scroll-to scroll-top"><span class="svg-icon"><svg
+                                                viewBox="0 0 24 24"><g fill="currentColor"><path
+                                                d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></g></svg></span></span>
+                                        <div class="main-footer">
+                                            <div class="main-footer-block"><span>Created by</span><a
+                                                    href="https://choiceqr.com/uk">
+                                                <div class="logo">
+                                                    <svg viewBox="0 0 112 21" xmlns="http://www.w3.org/2000/svg"
+                                                         fill="currentColor">
+                                                        <path d="M69.924 6.546c-2.36-.006-4.266-1.42-4.251-3.156.014-1.707 1.96-3.112 4.292-3.098 2.364.014 4.294 1.429 4.287 3.144-.006 1.707-1.965 3.115-4.328 3.11M55.633 15.923c-1.973-.005-3.567-1.42-3.556-3.157.014-1.706 1.64-3.111 3.59-3.098 1.977.016 3.591 1.43 3.585 3.144-.006 1.708-1.642 3.115-3.62 3.111zm.033-10.036c-5.318 0-9.63 3.094-9.63 6.91 0 3.816 4.312 6.91 9.63 6.91 5.317 0 9.628-3.094 9.628-6.91 0-3.816-4.311-6.91-9.628-6.91M41.362 5.934c-2.067-.196-3.744.582-4.957 2.215-.76 1.02-1.331 2.18-1.986 3.277-.084.142-.164.286-.245.429l-.082-.026V.872h-6.56v18.167c.059.01.092.02.126.02 1.76.002 3.521.008 5.282-.009.124-.001.294-.149.362-.273 1.2-2.157 2.384-4.322 3.576-6.483.105-.19.206-.403.368-.53.15-.12.418-.235.565-.176.186.073.32.313.44.503.052.083.015.224.015.338V19.032h6.565c.013-.052.023-.074.023-.096-.001-3.121.031-6.243-.02-9.363-.028-1.813-1.67-3.468-3.472-3.639M21.844 12.432c-.86.772-1.62 1.387-2.53 1.879-2.992 1.617-6.7 1.1-8.623-1.204-1.41-1.688-1.616-3.456-.632-5.403.639-1.264 1.732-2.157 3.25-2.653 2.195-.718 4.321-.468 6.32.743.583.354 1.091.774 1.63 1.219.239.197.486.402.738.598.068.052.13.108.164.137l.314.268 3.333-2.348-.392-.48a5.732 5.732 0 00-.11-.134c-2.301-2.69-5.564-4.26-9.695-4.668-3.847-.38-7.307.286-10.283 1.976C2.428 4.01.598 6.5.311 9.193c-.265 2.472.764 4.884 2.898 6.794 2.708 2.423 6.112 3.641 10.153 3.641 1.198 0 2.453-.107 3.761-.322 2.872-.47 5.293-1.672 7.401-3.673.226-.214.438-.436.643-.65l.28-.291.39-.4-3.352-2.438-.64.578M90.57 14.284c-.635.368-1.209.75-1.823 1.045-1.553.745-3.185 1-4.864.538-1.174-.323-2.067-1.031-2.454-2.234-.443-1.378.211-2.866 1.648-3.573 1.868-.918 3.73-.707 5.515.273.608.333 1.159.768 1.775 1.183.66-.865 1.415-1.85 2.04-2.694 0 0-.102-.1-.166-.155-.341-.301-.68-.62-1.065-.856-3.068-1.884-6.362-2.37-9.845-1.497-2.02.506-3.79 1.456-5.128 3.102-1.54 1.894-1.66 4.305-.306 6.332 1.025 1.534 2.489 2.51 4.18 3.136 2.999 1.11 6.018 1.088 9.022.003 1.137-.411 2.179-.998 3.068-1.836.237-.225.35-.311.35-.311-.395-.443-1.03-1.285-1.396-1.754l-.551-.702M66.696 19.047h6.553V7.886h-6.553v11.161M101.95 9.22a3.6 3.6 0 01.289-.084l.06-.015a4.306 4.306 0 011.76-.052c.534.092 1.04.276 1.483.53l.006.003c.135.077.26.172.364.275.394.384.525.88-.034 1.006l-.746.168-.716.149-2.334.483-.487.1a1221.108 1221.108 0 00-1.742.363h-.001a2.542 2.542 0 01-.028-.217v-.005c-.004-.02-.005-.042-.008-.063v-.037l-.005-.065v-.043c-.005-.149.003-.311.033-.474.133-.731.772-1.432 1.713-1.862a2.832 2.832 0 01.191-.083l.006-.003c.065-.025.131-.05.197-.073zm7.564 5.8l-.551-.702c-.636.367-1.209.75-1.823 1.045-1.553.744-3.184 1-4.864.538-.897-.247-1.628-.718-2.096-1.461l9.52-1.864c.723-.159.967-.8.96-1.706-.078-3.29-4.764-5.912-10.937-4.522-2.03.457-3.79 1.456-5.127 3.1-1.54 1.895-1.66 4.307-.306 6.333 1.025 1.534 2.489 2.51 4.18 3.137 2.998 1.108 6.019 1.089 9.023.003 1.137-.411 2.178-.998 3.067-1.836.238-.225.349-.311.349-.311-.394-.444-1.029-1.285-1.395-1.754"/>
+                                                    </svg>
+                                                </div>
+                                            </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="desktop-menu-info">
+                                    <div class="desktop-menu-info--item">
+                                        <div class="u-section-title">Пошук у меню</div>
+                                        <div class="ui-text-field ui-type-search search u-text-field-no-shadow">
+                                            <div class="ui-text-field-input-wrap"><input type="text"
+                                                                                         id="0.16765976703609664"
+                                                                                         placeholder="Пошук у меню"
+                                                                                         required value><span
+                                                    class="svg-icon icon-search"><svg viewBox="0 0 24 24"><g
+                                                    fill="currentColor"><path
+                                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></g></svg></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="desktop-menu-info--item">
+                                        <div class="u-section-title">Інформація про заклад</div>
+                                        <a target="_blank"
+                                           href="https://maps.google.com/?q=600-Richchya St, 40, Vinnytsia, Vinnyts'ka oblast, Ukraine, 21000"
+                                           class="list-item"><span class="svg-icon"><svg viewBox="0 0 24 24"><g
+                                                fill="currentColor"><path
+                                                d="M12 1C8.686 1 6 3.686 6 7C6 11.286 12 18 12 18C12 18 18 11.286 18 7C18 3.686 15.314 1 12 1ZM12 4.85742C13.184 4.85742 14.1426 5.816 14.1426 7C14.1426 8.183 13.183 9.14258 12 9.14258C10.817 9.14258 9.85742 8.184 9.85742 7C9.85742 5.816 10.816 4.85742 12 4.85742ZM4.80078 15L2 22H22L19.1992 15H16.8125C16.3275 15.731 15.8406 16.408 15.3926 17H17.8477L19.0469 20H4.95312L6.15234 17H8.60742C8.15942 16.408 7.6725 15.731 7.1875 15H4.80078Z"/></g></svg></span>
+                                            <div class="content">
+                                                <div class="u-font-600">600-Richchya St, 40, Vinnytsia, Vinnyts'ka
+                                                    oblast, Ukraine, 21000
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="list-item"><span class="svg-icon"><svg viewBox="0 0 24 24"><g
+                                                fill="currentColor"><path transform="translate(2, 2)"
+                                                                          d="M10 0C4.489 0 0 4.489 0 10s4.489 10 10 10 10-4.489 10-10S15.511 0 10 0zm0 2c4.43 0 8 3.57 8 8s-3.57 8-8 8-8-3.57-8-8 3.57-8 8-8zM9 4v6.414l4.293 4.293 1.414-1.414L11 9.586V4H9z"/></g></svg></span>
+                                            <div class="content">
+                                                <div class="title">Робочий час:</div>
+                                                <div class="desc">11:00 - 22:00</div>
+                                            </div>
+                                        </div>
+                                        <a href="tel:096 191 9765" class="list-item"><span class="svg-icon"><svg
+                                                viewBox="0 0 24 24"><g fill="currentColor"><path
+                                                transform="translate(1, 2)"
+                                                d="M12.988.002c-.11.007-.223.025-.334.055l-8.058 2.16A1.667 1.667 0 003.418 4.26l3.885 14.504a1.668 1.668 0 002.043 1.18l8.056-2.16a1.668 1.668 0 001.18-2.044L14.697 1.236A1.668 1.668 0 0012.988.002zm.53 3.277l3.021 11.282-8.057 2.16L5.461 5.439l8.057-2.16zm6.232.059l-1.932.517 2.159 8.06 1.931-.518-2.158-8.06zM2.023 8.088l-1.931.517 2.158 8.057 1.932-.517-2.159-8.057z"/></g></svg></span>
+                                            <div class="content">
+                                                <div class="title">Телефон:</div>
+                                                <div class="desc">096 191 9765</div>
+                                            </div>
+                                        </a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="debug"></div>
+<script src="js/2.55df6f7b.chunk.js"></script>
+<script src="js/main.9c8230dc.chunk.js"></script>
+
+<noscript>
+    <div><img src="1" style="position:absolute; left:-9999px;" alt></div>
+</noscript>
+</body>
+</html>
